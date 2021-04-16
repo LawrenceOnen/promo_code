@@ -1,10 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Promocodes.Models
 {
     public class Service
     {
 
         //Services data
-        public int id { get; set; }
+        [Key]
+        public int ServicesId { get; set; }
         public string Name { get; set; }
 
         public string Description { get; set; }

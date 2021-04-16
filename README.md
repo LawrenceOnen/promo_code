@@ -22,7 +22,21 @@ cd promo_code
 dotnet build Promocodes
 ```
 
-*After the successful build, run the project using the command below
+## First ensure all tests are passing
+
+*Change to the test directory from the project directory
+
+```bash
+cd ../test
+```
+
+*Run all the test. If all tests
+
+```bash
+dotnet test
+```
+
+*After the successful test run, run the project using the command below
 
 ```bash
 dotnet run --project Promocodes
