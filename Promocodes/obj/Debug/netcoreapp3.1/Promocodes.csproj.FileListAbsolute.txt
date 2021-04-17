@@ -17,3 +17,7 @@
 /Users/user/dev/alx_promo/promo_code/Promocodes/obj/Debug/netcoreapp3.1/Promocodes.dll
 /Users/user/dev/alx_promo/promo_code/Promocodes/obj/Debug/netcoreapp3.1/Promocodes.pdb
 /Users/user/dev/alx_promo/promo_code/Promocodes/obj/Debug/netcoreapp3.1/Promocodes.genruntimeconfig.cache
+/Users/user/dev/alx_promo/promo_code/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Server.Kestrel.Https.dll
+/Users/user/dev/alx_promo/promo_code/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
+/Users/user/dev/alx_promo/promo_code/Promocodes/bin/Debug/netcoreapp3.1/RandomStringGenerator.dll
+/Users/user/dev/alx_promo/promo_code/Promocodes/obj/Debug/netcoreapp3.1/Promocodes.csproj.CopyComplete

@@ -7,29 +7,16 @@ namespace Promocodes.Models
 
         //Services data
         [Key]
-        public int ServicesId { get; set; }
+        public int Id { get; set; }
+        [Required]
+        [MaxLength (50)]
         public string Name { get; set; }
 
+        [MaxLength (255)]
         public string Description { get; set; }
 
         public string Code { get; set; }
-        public int Activated { get; set; }
-
-        /*
-        *  CreatePromoCode: method is used to create the promotion promo
-        */
-        public string createPromoCode (){
-            //TODO:Write logic here.
-            return Code;
-        }
-
-        /*
-        * activateBonus: method sets bonus on 
-        */
-        public void activateBonus()
-        {
-            //TODO: add logic here
-        }
+        public bool IsActivated { get; set; }
 
     }
 }

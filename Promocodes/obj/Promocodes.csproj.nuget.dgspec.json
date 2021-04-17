@@ -46,22 +46,6 @@
             "RandomStringGenerator4DotNet": {
               "target": "Package",
               "version": "[1.0.0, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.4.1, )"
-            },
-            "xunit.analyzers": {
-              "target": "Package",
-              "version": "[0.10.0, )"
-            },
-            "xunit.assert": {
-              "target": "Package",
-              "version": "[2.4.1, )"
-            },
-            "xunit.core": {
-              "target": "Package",
-              "version": "[2.4.1, )"
             }
           },
           "imports": [
