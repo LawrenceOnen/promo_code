@@ -6,9 +6,10 @@ namespace Promocodes.Repository
 {
     public class MockServiceRepo : IServicesRepo
     {
-        public void CreateService()
+
+        public void CreateService(Service aservice)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void DeleteService()

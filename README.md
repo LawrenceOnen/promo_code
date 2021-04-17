@@ -41,3 +41,9 @@ dotnet test
 ```bash
 dotnet run --project Promocodes
 ```
+
+## Fire up docker compose to start the db
+
+```bash
+docker-compose up
+```
