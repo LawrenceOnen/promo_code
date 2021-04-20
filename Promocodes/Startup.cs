@@ -11,7 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Promocodes.Models;
 using Promocodes.Repository;
+using Promocodes.Services;
 
 namespace Promocodes
 {
@@ -28,11 +30,14 @@ namespace Promocodes
         {
             services.AddControllers();
 
+            services.AddHttpClient();
+
             //Register the repository s.t the DI can auto supply it whenever requested
-            services.AddScoped<IServicesRepo, MockServiceRepo>();
-            //Add DbContext
-            services.AddDbContext<ServiceContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("ServiceConn")));
+            services.AddScoped<IPromotionCode, PromotionCodeServices>();
+            
+            //Get sqlserver connection string from app settings file
+            services.AddDbContext<PromotionCodeDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

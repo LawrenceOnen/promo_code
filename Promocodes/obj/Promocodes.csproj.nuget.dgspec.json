@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/user/dev/alx_promo/promo_code/Promocodes/Promocodes.csproj": {}
+    "/Users/user/dev/alx_promo/backend/Promocodes/Promocodes.csproj": {}
   },
   "projects": {
-    "/Users/user/dev/alx_promo/promo_code/Promocodes/Promocodes.csproj": {
+    "/Users/user/dev/alx_promo/backend/Promocodes/Promocodes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/user/dev/alx_promo/promo_code/Promocodes/Promocodes.csproj",
+        "projectUniqueName": "/Users/user/dev/alx_promo/backend/Promocodes/Promocodes.csproj",
         "projectName": "Promocodes",
-        "projectPath": "/Users/user/dev/alx_promo/promo_code/Promocodes/Promocodes.csproj",
+        "projectPath": "/Users/user/dev/alx_promo/backend/Promocodes/Promocodes.csproj",
         "packagesPath": "/Users/user/.nuget/packages/",
-        "outputPath": "/Users/user/dev/alx_promo/promo_code/Promocodes/obj/",
+        "outputPath": "/Users/user/dev/alx_promo/backend/Promocodes/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -27,6 +27,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,6 +39,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Server.Kestrel": {
               "target": "Package",
@@ -45,25 +47,27 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
               "version": "[5.0.0, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[2.1.0-preview1, )"
-            },
-            "RandomStringGenerator4DotNet": {
-              "target": "Package",
-              "version": "[1.0.0, )"
             }
           },
           "imports": [
@@ -84,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
         }
       }
     }

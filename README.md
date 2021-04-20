@@ -42,6 +42,11 @@ dotnet test
 dotnet run --project Promocodes
 ```
 
+## Set up MSSQL on a mac using docker
+
+[](https://database.guide/how-to-install-sql-server-on-a-mac/)
+[](https://code.visualstudio.com/docs/containers/quickstart-aspnet-core)
+
 ## Fire up docker compose to start the db
 
 ```bash
