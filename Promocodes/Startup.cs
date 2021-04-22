@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
+using Promocodes.Extensions;
 using Promocodes.Models;
 using Promocodes.Repository;
 using Promocodes.Services;
@@ -47,23 +46,11 @@ namespace Promocodes
             //Register the repository s.t the DI can auto supply it whenever requested
             services.AddTransient<IPromotionCode, PromotionCodeServices>();
 
-            services.AddAuthentication(opt =>{
-                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => {
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
-                    ValidateIssuer = true,    //Valid Issuer of the token
-                    ValidateAudience = true,  //Valid receipient?
-                    ValidateLifetime = true,  //Token has not expired
-                    ValidateIssuerSigningKey = true,  //Valid and trusted sign in key
-                    
-                    ValidIssuer = "http://localhost:5000",
-                    ValidAudience = "http://localhost:5000",
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("testSecretKey@1983"))
-                    
-                };
-            });
+            services.ConfigureCors();
+
+            services.ConfigureIISIntegration();
+
+            services.ConfigureAuthentication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
