@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Promocodes.Repository;
 
 namespace Promocodes.Extensions
 {
@@ -45,6 +48,9 @@ namespace Promocodes.Extensions
                     
                 };
             });
-
+        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration config) =>
+            services.AddDbContext<PromotionCodeDbContext>(opts =>{
+                opts.UseSqlServer(config.GetConnectionString("sqlconnection"));
+            });
     }
 }

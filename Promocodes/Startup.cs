@@ -30,26 +30,27 @@ namespace Promocodes
         public void ConfigureServices(IServiceCollection services)
         {
             //Build connect string based on env for docker connection
-            var server = Configuration["DBServer"] ?? "localhost";
-            var port = Configuration["DBPort"] ?? "1433";
-            var user = Configuration["DBUser"] ?? "sa"; //Not in production
-            var password = Configuration["DBPassword"] ?? "MyPassword1234";
-            var database = Configuration["Database"] ?? "Promocodes";
+            //var server = Configuration["DBServer"] ?? "localhost";
+            //var port = Configuration["DBPort"] ?? "1433";
+            //var user = Configuration["DBUser"] ?? "sa"; //Not in production
+            //var password = Configuration["DBPassword"] ?? "MyPassword1234";
+            //var database = Configuration["Database"] ?? "Promocodes";
 
-            services.AddDbContext<PromotionCodeDbContext>(options =>
-                options.UseSqlServer($"Server={server}, {port};Initial Catalog={database};User ID = {user};Password={password}"));
-            
+            services.ConfigureSqlContext(Configuration);
+            //services.AddDbContext<PromotionCodeDbContext>(options =>
+               // options.UseSqlServer($"Server={server}, {port};Initial Catalog={database};User ID = {user};Password={password}"));
+            //Register all controllers  
             services.AddControllers();
 
             services.AddHttpClient();
                         
             //Register the repository s.t the DI can auto supply it whenever requested
             services.AddTransient<IPromotionCode, PromotionCodeServices>();
-
+            //Set up Cors
             services.ConfigureCors();
-
+            //Set up self hosting with IIS
             services.ConfigureIISIntegration();
-
+            //Set up basic Authentication with JWT
             services.ConfigureAuthentication();
         }
 
@@ -59,11 +60,21 @@ namespace Promocodes
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            } else
+            {   //Strict transport security headers
+                app.UseHsts();
             }
+            app.UseRouting();
+
+            //Add Cors to app pipeline
+            app.UseCors("CorsPolicy");
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.All
+            });
 
             app.UseHttpsRedirection();
-
-            app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
