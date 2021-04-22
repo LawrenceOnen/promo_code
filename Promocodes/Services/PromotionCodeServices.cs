@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Promocodes.Models;
 using Promocodes.Repository;
@@ -38,6 +39,7 @@ namespace Promocodes.Services
         public IEnumerable<PromotionCode> GetServices()
         {
             var servicesList = _db.PromotionCodes.ToList();
+            
             return servicesList;
         }
 
@@ -45,8 +47,24 @@ namespace Promocodes.Services
 
         public PromotionCode GetServicesById(int id)
         {
-            var service = _db.PromotionCodes.FirstOrDefault(x => x.Id == id);
-            return service;
+            //var service = _db.Services.FirstOrDefault(x => x.Id == id);
+            return new PromotionCode{Id=1, Name="Harveys' College", Description="Description4", Code="A0004", IsActivated=false};
+        }
+
+        public IEnumerable<PromotionCode> Search(string code, string name)
+        {
+            IQueryable<PromotionCode> query  = _db.PromotionCodes;
+            //If name is not null, search by name
+            if(!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(e => e.Name.Contains(name));
+            }
+            //If code is not null, search by code
+            if(!string.IsNullOrEmpty(code))
+            {
+                query = query.Where(e => e.Code.Contains(code));
+            }
+            return query.ToList();
         }
 
         public PromotionCode UpdateAService(PromotionCode pcService)

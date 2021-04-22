@@ -5,7 +5,8 @@ namespace Promocodes.Repository
 {
    public interface IPromotionCode
    {
-       IEnumerable<PromotionCode> GetServices();
+       IEnumerable<PromotionCode> Search(string code, string name);
+       IEnumerable<PromotionCode> GetServices(); 
        PromotionCode GetServicesById(int id);
        PromotionCode CreateAService(PromotionCode pcService);
 

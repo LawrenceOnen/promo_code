@@ -28,16 +28,22 @@ namespace Promocodes
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Build connect string based on env for docker connection
+            var server = Configuration["DBServer"] ?? "localhost";
+            var port = Configuration["DBPort"] ?? "1433";
+            var user = Configuration["DBUser"] ?? "sa"; //Not in production
+            var password = Configuration["DBPassword"] ?? "MyPassword1234";
+            var database = Configuration["Database"] ?? "Promocodes";
+
+            services.AddDbContext<PromotionCodeDbContext>(options =>
+                options.UseSqlServer($"Server={server}, {port};Initial Catalog={database};User ID = {user};Password={password}"));
+            
             services.AddControllers();
 
             services.AddHttpClient();
-
+                        
             //Register the repository s.t the DI can auto supply it whenever requested
-            services.AddScoped<IPromotionCode, PromotionCodeServices>();
-            
-            //Get sqlserver connection string from app settings file
-            services.AddDbContext<PromotionCodeDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
+            services.AddTransient<IPromotionCode, PromotionCodeServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

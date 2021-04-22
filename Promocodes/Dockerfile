@@ -9,7 +9,9 @@ ENV ASPNETCORE_URLS=http://*:5000
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build-env
+ENV PATH $PATH:/root/.dotnet/tools
+RUN dotnet tool install -g dotnet-ef --version 3.1.1
 WORKDIR /src
 COPY ["Promocodes/Promocodes.csproj", "Promocodes/"]
 RUN dotnet restore "Promocodes/Promocodes.csproj"

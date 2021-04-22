@@ -77,9 +77,6 @@
 /Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Promocodes.runtimeconfig.dev.json
 /Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Promocodes.dll
 /Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Promocodes.pdb
-/Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Humanizer.dll
-/Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Server.Kestrel.Https.dll
-/Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 /Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
 /Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.dll
 /Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Abstractions.dll
