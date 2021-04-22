@@ -136,3 +136,4 @@
 /Users/user/dev/alx_promo/backend/Promocodes/obj/Debug/netcoreapp3.1/Promocodes.dll
 /Users/user/dev/alx_promo/backend/Promocodes/obj/Debug/netcoreapp3.1/Promocodes.pdb
 /Users/user/dev/alx_promo/backend/Promocodes/obj/Debug/netcoreapp3.1/Promocodes.genruntimeconfig.cache
+/Users/user/dev/alx_promo/backend/Promocodes/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll

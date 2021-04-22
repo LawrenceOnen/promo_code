@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Promocodes.Models;
@@ -26,6 +27,7 @@ namespace Promocodes.Controllers
 
         //GET api/services
         [HttpGet]
+        [Authorize]
         [Route("[Controller]")]
         public ActionResult <IEnumerable<PromotionCode>> GetServices()
         {
@@ -34,6 +36,7 @@ namespace Promocodes.Controllers
         }
 
          //GET api/services/{id}
+        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<PromotionCode> GetServicesById(int id)
         {
@@ -43,6 +46,7 @@ namespace Promocodes.Controllers
 
         //Create a Service with Code
         [HttpPost]
+        [Authorize]
         [Route("api/PromotionCodes/CreateAService")]
         public PromotionCode CreateAService([FromBody]PromotionCode pcService)
         {
@@ -53,6 +57,7 @@ namespace Promocodes.Controllers
 
         //Update a Service with Code
         [HttpPut]
+        [Authorize]
         [Route("[action]")]
         [Route("api/PromotionCodes/UpdateAService")]
         public PromotionCode UpdateAService(PromotionCode pcService)
@@ -62,6 +67,7 @@ namespace Promocodes.Controllers
 
         //Delete a Service for given Id
         [HttpDelete]
+        [Authorize]
         [Route("[action]")]
         [Route("api/PromotionCodes/DeleteAService")]
         public PromotionCode DeleteAService(int id)
@@ -70,6 +76,7 @@ namespace Promocodes.Controllers
         }
         //Return list of serach results that match the search criteria
         [HttpGet("{search}")]
+        [Authorize]
         public ActionResult<IEnumerable<PromotionCode>> Search(string code, string name)
         {
             try
